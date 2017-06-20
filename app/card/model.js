@@ -23,6 +23,5 @@ export default DS.Model.extend({
   labels: DS.attr(),
   shortUrl: DS.attr('string'),
   subscribed: DS.attr('boolean'),
-  url: DS.attr('string'),
-  list: DS.belongTo('list')
+  url: DS.attr('string')
 });
