@@ -26,17 +26,15 @@ router.get('/api', (req, res) => {
 });
 
 router.get('/cards',(request, responce) => {
-  const list_ids = request.headers.list_ids.split(',');
+  const list_id = req.query.id;
   console.log(list_ids);
-  list_ids.forEach((val)=>{
-    trello.makeRequest('get', `/1/lists/${val}/cards`, { webhooks: true })
-     .then((res) => {
-         console.log(res);
-         responce.send(res);
-     }).catch((reason)=>{
-       console.log(reason);
-     });
- });
+  trello.makeRequest('get', `/1/lists/${list_id}/cards`, { webhooks: true })
+   .then((res) => {
+       console.log(res);
+       responce.send(res);
+   }).catch((reason)=>{
+     console.log(reason);
+   });
 });
 
 router.get('/boards',(request, responce) => {
