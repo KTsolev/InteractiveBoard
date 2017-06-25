@@ -1,7 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model(params){
-    return this.store.findRecord('card', params.list_id);
-  }
+  model(){
+  //  const list = this.modelFor('list');
+  //   return this.store.query('card', { param: list });
+  },
+  setupController(controller, models) {
+   controller.set('cards', models);
+ }
 });

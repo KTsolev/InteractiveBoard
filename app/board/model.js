@@ -21,4 +21,5 @@ export default DS.Model.extend({
   dateLastView: DS.attr('string'),
   shortUrl: DS.attr('string'),
   memberships:  DS.attr(),
+  lists: DS.hasMany('list')
 });

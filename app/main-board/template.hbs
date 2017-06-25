@@ -1,8 +1,2 @@
 {{outlet}}
-{{trello-boards boards=attrs.trelloBoards}}
-{{#each model as |param|}}
-  <span>{{param.name}}</span><br/>
-  <span>{{param.sortLink}}</span><br/>
-  <span>{{param.dateLastView}}</span><br/>
-  <span>{{param.shortUrl}}</span><br/>
-{{/each}}
+{{trello-boards boards=trelloBoards lists=trelloLists}}

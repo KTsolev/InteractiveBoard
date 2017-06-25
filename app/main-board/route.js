@@ -1,14 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  cards:[],
   model(){
-    return this.store.findAll('board');
+    return Ember.RSVP.hash({
+      boards: this.store.findAll('board').then(results => results.filter((board) => {
+          return board.get('name') === 'sprint01';
+      })),
+      lists: this.store.findAll('list')
+    });
   },
-
-  setupController(controller,model){
-    this._super(controller, model);
+  setupController(controller, model){
     controller.setProperties({
-      'attrs.trelloBoards':model
+      trelloBoards: model.boards,
+      trelloLists: model.lists,
+      trelloCards: this.get('cards')
     });
   }
 });

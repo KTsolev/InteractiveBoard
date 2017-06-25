@@ -1,4 +1,13 @@
-{{log boards}}
 {{#each boards as |board|}}
-  <p>{{board}}</p>
+  <span>{{board.name}}</span><br/>
+  <span>{{board.sortLink}}</span><br/>
+  <span>{{board.dateLastView}}</span><br/>
+  <span>{{board.shortUrl}}</span><br/>
+{{/each}}
+{{#each lists as |list|}}
+  <span>{{list.name}}</span><br/>
+  <span>{{list.closed}}</span><br/>
+  <span>{{list.pos}}</span><br/>
+  <span>{{list.subscribed}}</span><br/>
+  <span>{{list.idBoard}}</span><br/>
 {{/each}}

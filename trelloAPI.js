@@ -26,7 +26,8 @@ router.get('/api', (req, res) => {
 });
 
 router.get('/cards',(request, responce) => {
-  const list_id = request.params.list_id;
+  const list_id = request.header.list_id;
+  console.log(list_id);
   trello.makeRequest('get', `/1/lists/${list_id}/cards`, { webhooks: true })
    .then((res) => {
        console.log(res);
